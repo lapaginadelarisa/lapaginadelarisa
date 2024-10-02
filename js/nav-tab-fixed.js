@@ -10,6 +10,10 @@ export class NavTabFixed extends HTMLElement {
     <span class="material-symbols-outlined">home</span>
     Inicio
    </a>
+    <a ${resaltaSiEstasEn(["/ayuda.html"])} href="ayuda.html">
+    <span class="material-symbols-outlined">help</span>
+    Inicio
+   </a>
   `
  }
 
