@@ -31,7 +31,6 @@ const ARCHIVOS = [
  "index.html",
  "css/estilos.css",
  "css/tokens.css",
- "img/Escultura_de_coyote.jpeg",
  "img/icono2048.png",
  "img/maskable_icon.png",
  "img/maskable_icon_x128.png",
@@ -41,15 +40,6 @@ const ARCHIVOS = [
  "img/maskable_icon_x512.png",
  "img/maskable_icon_x72.png",
  "img/maskable_icon_x96.png",
- "img/pexels-craig-dennis-3701822.jpg",
- "img/pexels-creative-workshop-3978352.jpg",
- "img/pexels-erik-karits-3732453.jpg",
- "img/pexels-esteban-arango-10226903.jpg",
- "img/pexels-moises-patrício-10961948.jpg",
- "img/pexels-ralph-2270848.jpg",
- "img/pexels-rasmus-svinding-35435.jpg",
- "img/pexels-steve-397857.jpg",
- "img/pexels-vadim-b-141496.jpg",
  "img/screenshot_horizontal.png",
  "img/screenshot_vertical.png",
  "js/configura.js",
@@ -106,7 +96,6 @@ const ARCHIVOS = [
  "lib/js/custom/md-top-app-bar.js",
  "lib/js/custom/MdNavigationDrawer.js",
  "ungap/custom-elements.js",
- "/"
 ]
 
 // Verifica si el código corre dentro de un service worker.
