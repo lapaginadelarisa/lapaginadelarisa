@@ -4,23 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Equipo MegaDev</title>
+  <title>Chistes MD</title>
   <meta name="theme-color" content="#fffbfe">
   <link rel="icon" sizes="32x32" href="favicon.ico">
   <link rel="manifest" href="site.webmanifest">
   <link rel="stylesheet" href="css/estilos.css">
   <script src="ungap/custom-elements.js"></script>
   <script type="module" src="js/configura.js"></script>
+  <link rel="stylesheet" href="css/transicion_pestanas.css">
+  <link rel="expect" blocking="render" href="#navtabfixed">
 </head>
 
 <body>
 
   <form id="form" novalidate onsubmit="procesa(event)">
 
-    <md-top-app-bar>
-      <h1>Formulario</h1>
+    <!-- <md-top-app-bar>
+      <h1>Chistes para reír</h1>
       <button is="md-menu-button" slot="navigation" onclick="nav.abre()"></button>
-    </md-top-app-bar>
+    </md-top-app-bar> -->
+
+    <nav-tab-fixed id="tab"></nav-tab-fixed>
 
     <main>
       <h2>Selecciona un nombre del algún integrante del equipo MegaDev para escuchar un chiste</h2>

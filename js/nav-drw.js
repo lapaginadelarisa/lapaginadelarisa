@@ -8,7 +8,7 @@ export class NavDrw extends MdNavigationDrawer {
   */
  getHipervinculos() {
   return /* HTML */`
-   <h1>Equipo MegaDev</h1>
+   <h1>Chistes MD</h1>
 
    <a ${resaltaSiEstasEn(["/index.html", "", "/"])} href="index.html">
     <span class="material-symbols-outlined">home</span>
