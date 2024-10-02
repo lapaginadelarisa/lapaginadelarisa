@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equipo MegaDev</title>
+  <meta name="theme-color" content="#fffbfe">
+  <link rel="icon" sizes="32x32" href="favicon.ico">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="ungap/custom-elements.js"></script>
+  <script type="module" src="js/configura.js"></script>
+</head>
+
+<body>
+
+  <form id="form" novalidate onsubmit="procesa(event)">
+
+    <md-top-app-bar>
+      <h1>Formulario</h1>
+      <button is="md-menu-button" slot="navigation" onclick="nav.abre()"></button>
+    </md-top-app-bar>
+
+    <main>
+      <h2>Selecciona un nombre del algún integrante del equipo MegaDev para escuchar un chiste</h2>
+
+      <p class="md-filled-text-field">
+        <md-select-menu id="selectNombre" required aria-labelledby="etiquetaNombre" options="opcionesDeNombres"
+          oninput="copiaMensajes()">
+        </md-select-menu>
+        <span id="etiquetaNombre" accesskey="N">Nombres*</span>
+        <small id="supportingNombre">* Obligatorio</small>
+      </p>
+
+      <p>
+        <button class="md-filled-button" style="width: 100%;">Escuchar chiste</button>
+      </p>
+
+    </main>
+
+    <md-options-menu id="opcionesDeNombres" aria-label="Opciones de nombres">
+      <span data-value="" title="Selecciona un nombre"></span>
+      <span data-value="Ana">Ana</span>
+      <span data-value="Carlos">Carlos</span>
+      <span data-value="Samantha">Samantha</span>
+      <span data-value="Yolibet">Yolibet</span>
+      <span data-value="Eduardo">Eduardo</span>
+    </md-options-menu>
+
+    <nav-drw id="nav"></nav-drw>
+
+  </form>
+
+  <script type="module">
+    import { muestraError } from "./lib/js/muestraError.js";
+    import { muestraTextoDeAyuda } from "./lib/js/muestraTextoDeAyuda.js";
+
+    const chistes = {
+      "Ana": "¿Qué hace una abeja en el gimnasio? ¡Zum-ba!",
+      "Carlos": "¿Qué le dice una impresora a otra? ¿Esa hoja es tuya o es una impresión mía?",
+      "Samantha": "¿Por qué el libro de matemáticas está deprimido? Porque tiene muchos problemas.",
+      "Yolibet": "¿Qué hace una vaca con los ojos cerrados? ¡Leche concentrada!",
+      "Eduardo": "¿Cómo se despiden los químicos? Ácido un placer."
+    };
+
+    function copiaMensajes() {
+      muestraTextoDeAyuda(selectNombre, supportingNombre, "* Obligatorio");
+    }
+    window["copiaMensajes"] = copiaMensajes;
+
+    /**
+     * @param {SubmitEvent} evt
+     */
+    function procesa(evt) {
+      evt.preventDefault();
+      try {
+        copiaMensajes();
+        if (selectNombre.validity.valid) {
+          const nombre = selectNombre.value;
+          const resultado = recomienda(nombre);
+          alert(resultado);
+        }
+      } catch (e) {
+        muestraError(e);
+      }
+    }
+    window["procesa"] = procesa;
+
+    /** @param {string} nombre */
+    function recomienda(nombre) {
+      if (nombre in chistes) {
+        return chistes[nombre];
+      } else {
+        return "Selecciona un nombre válido.";
+      }
+    }
+  </script>
+
+</body>
+
+</html>
